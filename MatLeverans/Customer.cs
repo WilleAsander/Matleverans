@@ -8,10 +8,18 @@ namespace MatLeverans
 {
     public class Customer : ICustomer
     {
-        public List<Customer> Add(string name, string socialSec, string adress, string email, string phone, bool VIP, int id, string date)
-        {
-            return new List<Customer>();
+        public string name { get; set; }
+        public string socialSec { get; set; }
+        public string adress { get; set; }
+        public string email { get ; set ; }
+        public string phone { get ; set ; }
+        public bool VIP { get ; set ; }
+        public int id { get ; set ; }
+        public string date { get ; set ; }
 
+        public override string ToString()
+        {
+            return string.Format(name);
         }
     }
 }
