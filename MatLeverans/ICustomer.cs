@@ -8,6 +8,13 @@ namespace MatLeverans
 {
     public interface ICustomer
     {
-        List<Customer> Add(string name, string socialSec, string adress, string email,string phone, bool VIP, int id,string date);
+        string name { get; set; }
+        string socialSec { get; set; }
+        string adress { get; set; }
+        string email { get; set; }
+        string phone { get; set; }
+        bool VIP { get; set; }
+        int id { get; set; }
+        string date { get; set; }
     }
 }
