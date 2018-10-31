@@ -13,13 +13,13 @@ namespace MatLeverans
     public partial class Form1 : Form
     {
         private ICustomer register;
-        List<Customer> customer = new List<Customer>();
+        public static List<Customer> customer;
         public Form1()
         {
             InitializeComponent();
 
             register = new Customer();
-            
+            customer = new List<Customer>();
             button1.Text = ("Register!");
 
             button1.Click += new EventHandler(DoRegister);
@@ -52,6 +52,9 @@ namespace MatLeverans
                 id = 1,
             });
 
+            CustomerList customerlist = new CustomerList();
+            customerlist.Show();
+            this.Hide();
 
         }
     }
