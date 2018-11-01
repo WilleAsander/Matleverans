@@ -14,7 +14,6 @@ namespace MatLeverans
         string email { get; set; }
         string phone { get; set; }
         bool VIP { get; set; }
-        int id { get; set; }
         string date { get; set; }
     }
 }
