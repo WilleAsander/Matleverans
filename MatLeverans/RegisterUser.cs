@@ -45,7 +45,6 @@ namespace MatLeverans
                 phone = (textBox5.Text),
                 VIP = (checkBox1.Checked),
                 date = DateTime.Now.ToString("MM/dd/yyyy"),
-                id = 1,
             });
 
             RegisterUser customerlist = new RegisterUser();

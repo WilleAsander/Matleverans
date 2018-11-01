@@ -14,12 +14,11 @@ namespace MatLeverans
         public string email { get ; set ; }
         public string phone { get ; set ; }
         public bool VIP { get ; set ; }
-        public int id { get ; set ; }
         public string date { get ; set ; }
 
         public override string ToString()
         {
-            return string.Format(name);
+            return string.Format(socialSec);
         }
     }
 }
