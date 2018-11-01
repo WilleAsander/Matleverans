@@ -13,15 +13,15 @@ namespace MatLeverans
     public partial class Form1 : Form
     {
         private ICustomer register;
-        public static List<Customer> customer;
+        public static BindingList<Customer> customer;
         public Form1()
         {
             InitializeComponent();
 
             register = new Customer();
-            customer = new List<Customer>();
+            customer = new BindingList<Customer>();
             button1.Text = ("Register!");
-
+            listBox1.DataSource = customer;
             button1.Click += new EventHandler(DoRegister);
 
         }
@@ -31,30 +31,10 @@ namespace MatLeverans
 
 
 
-            //List<Customer> customer = new List<Customer>() { register.Add(name, socialSec, adress, email, phone, VIP, id, date) };
-            /*string name = (textBox1.Text);
-            string socialSec = (textBox2.Text);
-            string adress = (textBox3.Text);
-            string email = (textBox4.Text);
-            string phone = (textBox5.Text);
-            bool VIP = (checkBox1.Checked);
-            string date = DateTime.Now.ToString("MM/dd/yyyy");
-            int id = 1;*/
-            customer.Add(new Customer
-            {
-                name = (textBox1.Text),
-                socialSec = (textBox2.Text),
-                adress = (textBox3.Text),
-                email = (textBox4.Text),
-                phone = (textBox5.Text),
-                VIP = (checkBox1.Checked),
-                date = DateTime.Now.ToString("MM/dd/yyyy"),
-                id = 1,
-            });
+           
 
-            CustomerList customerlist = new CustomerList();
+            RegisterUser customerlist = new RegisterUser();
             customerlist.Show();
-            this.Hide();
 
         }
     }
