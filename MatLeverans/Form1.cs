@@ -25,9 +25,8 @@ namespace MatLeverans
             button1.Text = ("Register");
             button2.Text = ("Edit");
             button3.Text = ("Delete");
-            button4.BackgroundImage = Image.FromFile(@"C:\Users\Admin\Downloads\icons8-google-web-search-25.png");
-            button4.Text = ("");
-            textBox1.Text = ("Search...");
+            button4.Text = ("Search");
+            textBox1.Text = ("Social security number...");
             label1.Text = ("Status: ");
             listBox1.DataSource = customer;
             button1.Click += new EventHandler(DoRegister);
@@ -87,7 +86,7 @@ namespace MatLeverans
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                textBox1.Text = ("Search...");
+                textBox1.Text = ("Social security number...");
             }
         }
 

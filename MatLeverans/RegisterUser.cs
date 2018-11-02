@@ -44,19 +44,30 @@ namespace MatLeverans
                     return;
                 }
             }
-            Form1.customer.Add(new Customer
-            {
-                name = (textBox1.Text),
-                socialSec = (textBox2.Text),
-                adress = (textBox3.Text),
-                email = (textBox4.Text),
-                phone = (textBox5.Text),
-                VIP = (checkBox1.Checked),
-                date = DateTime.Now.ToString("MM/dd/yyyy"),
-            });
 
-            RegisterUser customerlist = new RegisterUser();
-            customerlist.Show();
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text)
+                || string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text)
+                || string.IsNullOrWhiteSpace(textBox5.Text))
+            {
+                MessageBox.Show("Need to fill all fields!");
+                return;
+            }
+            else
+            {
+                Form1.customer.Add(new Customer
+                {
+                    name = (textBox1.Text),
+                    socialSec = (textBox2.Text),
+                    adress = (textBox3.Text),
+                    email = (textBox4.Text),
+                    phone = (textBox5.Text),
+                    VIP = (checkBox1.Checked),
+                    date = DateTime.Now.ToString("MM/dd/yyyy"),
+                });
+            }
+
+            RegisterUser registerUser = new RegisterUser();
+            registerUser.Show();
             this.Hide();
         }
     }
