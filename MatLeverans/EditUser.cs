@@ -62,25 +62,35 @@ namespace MatLeverans
 
         private void Save(object sender, EventArgs e)
         {
-            foreach (Customer c in Form1.customer)
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text)
+                || string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text)
+                || string.IsNullOrWhiteSpace(textBox5.Text))
             {
-                if (c.socialSec == textBox2.Text)
-                {
-                    MessageBox.Show("This Social Security Number is already registered!");
-                    return;
-                }
+                MessageBox.Show("Need to fill all fields!");
+                return;
             }
-            Form1.customer.RemoveAt(index);
-            Form1.customer.Add(new Customer
+            else
             {
-                name = textBox1.Text,
-                socialSec = textBox2.Text,
-                adress = textBox3.Text,
-                email = textBox4.Text,
-                phone = textBox5.Text,
-                VIP = checkBox1.Checked,
-                date = Date
-            });
+                Form1.customer.RemoveAt(index);
+                foreach (Customer c in Form1.customer)
+                {
+                    if (c.socialSec == textBox2.Text)
+                    {
+                        MessageBox.Show("This Social Security Number is already registered!");
+                        return;
+                    }
+                }
+                Form1.customer.Add(new Customer
+                {
+                    name = textBox1.Text,
+                    socialSec = textBox2.Text,
+                    adress = textBox3.Text,
+                    email = textBox4.Text,
+                    phone = textBox5.Text,
+                    VIP = checkBox1.Checked,
+                    date = Date
+                });
+            }
 
             this.Close();
         }
