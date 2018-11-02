@@ -25,10 +25,17 @@ namespace MatLeverans
             button1.Text = ("Register");
             button2.Text = ("Edit");
             button3.Text = ("Delete");
+            button4.BackgroundImage = Image.FromFile(@"C:\Users\Admin\Downloads\icons8-google-web-search-25.png");
+            button4.Text = ("");
+            textBox1.Text = ("Search...");
+            label1.Text = ("Status: ");
             listBox1.DataSource = customer;
             button1.Click += new EventHandler(DoRegister);
             button2.Click += new EventHandler(Edit);
             button3.Click += new EventHandler(Delete);
+            button4.Click += new EventHandler(Search);
+            textBox1.GotFocus += new EventHandler(RemoveText);
+            textBox1.LostFocus += new EventHandler(AddText);
 
         }
 
@@ -48,7 +55,9 @@ namespace MatLeverans
             registerUser.Close();
             EditUser editUser = new EditUser();
             editUser.Show();
-            
+            listBox1.SelectedItems.Clear();
+
+
         }
 
         private void Delete(object sender, EventArgs e)
@@ -56,6 +65,39 @@ namespace MatLeverans
             selectedUser = listBox1.GetItemText(listBox1.SelectedItem);
             Index = customer.IndexOf(customer.Single(i => i.socialSec == selectedUser));
             customer.RemoveAt(Index);
+        }
+
+        private void AddText(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                textBox1.Text = ("Search...");
+            }
+        }
+
+        private void RemoveText(object sender, EventArgs e)
+        {
+            textBox1.Text = ("");
+        }
+
+        private void Search(object sender, EventArgs e)
+        {
+            listBox1.SelectedItems.Clear();
+            int currentIndex = -1;
+            foreach (Customer c in customer)
+            {
+                currentIndex++;
+                if (c.socialSec == textBox1.Text)
+                {
+                    
+                    Index = customer.IndexOf(customer.Single(i => i.socialSec == textBox1.Text));
+                    listBox1.SetSelected(Index, true);
+                    label1.Text = "Status: " + listBox1.SelectedItems.Count.ToString() + " items found";
+                    return;
+                }
+            }
+            label1.Text = "Status: 0 items found";
+
         }
     }
 }
