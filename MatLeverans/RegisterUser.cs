@@ -36,6 +36,14 @@ namespace MatLeverans
             bool VIP = (checkBox1.Checked);
             string date = DateTime.Now.ToString("MM/dd/yyyy");
             int id = 1;*/
+            foreach (Customer c in Form1.customer)
+            {
+                if(c.socialSec == textBox2.Text)
+                {
+                    MessageBox.Show("This Social Security Number is already registered!");
+                    return;
+                }
+            }
             Form1.customer.Add(new Customer
             {
                 name = (textBox1.Text),

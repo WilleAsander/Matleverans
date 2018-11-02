@@ -62,6 +62,14 @@ namespace MatLeverans
 
         private void Save(object sender, EventArgs e)
         {
+            foreach (Customer c in Form1.customer)
+            {
+                if (c.socialSec == textBox2.Text)
+                {
+                    MessageBox.Show("This Social Security Number is already registered!");
+                    return;
+                }
+            }
             Form1.customer.RemoveAt(index);
             Form1.customer.Add(new Customer
             {
