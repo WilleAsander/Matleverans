@@ -51,11 +51,19 @@ namespace MatLeverans
         private void Edit(object sender, EventArgs e)
         {
             selectedUser = listBox1.GetItemText(listBox1.SelectedItem);
-            RegisterUser registerUser = new RegisterUser();
-            registerUser.Close();
-            EditUser editUser = new EditUser();
-            editUser.Show();
-            listBox1.SelectedItems.Clear();
+            foreach (Customer c in customer)
+            {
+                if (c.socialSec == selectedUser)
+                {
+                    RegisterUser registerUser = new RegisterUser();
+                    registerUser.Close();
+                    EditUser editUser = new EditUser();
+                    editUser.Show();
+                    listBox1.SelectedItems.Clear();
+                    return;
+                }
+            }
+            MessageBox.Show("You need an item selected!");
 
 
         }
@@ -63,8 +71,16 @@ namespace MatLeverans
         private void Delete(object sender, EventArgs e)
         {
             selectedUser = listBox1.GetItemText(listBox1.SelectedItem);
-            Index = customer.IndexOf(customer.Single(i => i.socialSec == selectedUser));
-            customer.RemoveAt(Index);
+            foreach(Customer c in customer)
+            {
+                if(c.socialSec == selectedUser)
+                {
+                    Index = customer.IndexOf(customer.Single(i => i.socialSec == selectedUser));
+                    customer.RemoveAt(Index);
+                    return;
+                }
+            }
+            MessageBox.Show("You need an item selected!");
         }
 
         private void AddText(object sender, EventArgs e)
