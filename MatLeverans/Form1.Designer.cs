@@ -74,16 +74,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(350, 53);
+            this.textBox1.Location = new System.Drawing.Point(142, 53);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(132, 20);
             this.textBox1.TabIndex = 5;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(456, 51);
+            this.button4.Location = new System.Drawing.Point(280, 51);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(23, 23);
+            this.button4.Size = new System.Drawing.Size(67, 23);
             this.button4.TabIndex = 6;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(498, 56);
+            this.label1.Location = new System.Drawing.Point(463, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 7;
